@@ -1,0 +1,363 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F5F5F5;
+    text-align: center;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1B2B40;
+    padding: 15px 20px;
+}
+
+.logo {
+    height: 40px;
+}
+
+.title {
+    color: #FFFFFF;
+    font-size: 22px;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+/* Box Layout */
+.box-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.box {
+    width: 120px;
+    height: 120px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Promo Section */
+.promo-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.promo {
+    width: 45%;
+    height: 150px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.promo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Best-Selling Books */
+.best-sellers {
+    padding: 20px;
+}
+
+.books-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+}
+
+.book {
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    width: 120px;
+}
+
+.book img {
+    width: 100%;
+    height: auto;
+}
+
+.book-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.add-to-cart {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #A73446;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.add-to-cart:hover {
+    background-color: #8C2B3D;
+}
+
+/* Shop by Category */
+.shop-by-category {
+    padding: 20px;
+}
+
+.category-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.category {
+    background-color: #1B2B40;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.category:hover {
+    background-color: #A73446;
+}
+
+/* Newsletter */
+.newsletter {
+    background-color: #E7A827;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.newsletter input {
+    padding: 10px;
+    width: 250px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.newsletter button {
+    padding: 10px 15px;
+    background-color: #A73446;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.newsletter button:hover {
+    background-color: #8C2B3D;
+}
+
+/* Footer */
+.footer {
+    background-color: #1B2B40;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+}
+.gallery-container {
+    text-align: center;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 15px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.gallery-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-container img:hover {
+    transform: scale(1.05);
+}
+/* Contact Page */
+.contact-container {
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.contact-title {
+    font-size: 2.5rem;
+    color: #1B2B40;
+    margin-bottom: 10px;
+}
+
+.contact-description {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+/* Contact Form */
+.contact-form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    width: 50%;
+}
+
+.contact-form label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact-form button {
+    background-color: #A73446;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.contact-form button:hover {
+    background-color: #8C2B3D;
+}
+
+/* Contact Info */
+.contact-info {
+    background: #F5F5F5;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    width: 40%;
+}
+
+.contact-info h2 {
+    color: #1B2B40;
+}
+
+.contact-info p {
+    font-size: 1rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+.contact-info h3 {
+    margin-top: 20px;
+    color: #A73446;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-form, .contact-info {
+        width: 100%;
+    }
+}
+/* Customer Spotlight Section */
+.spotlight {
+    text-align: center;
+    padding: 40px;
+}
+
+.spotlight-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.spotlight-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    text-align: center;
+}
+
+.spotlight-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.spotlight-card h3 {
+    font-size: 18px;
+    color: #1B2B40;
+    margin-bottom: 5px;
+}
+
+.spotlight-card p {
+    font-size: 14px;
+    color: #555;
+}
