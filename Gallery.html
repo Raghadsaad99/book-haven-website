@@ -14,7 +14,7 @@
             width="10%" height="10%" alt="Book Haven Logo" class="logo">
         <nav class="nav">
             <a href="index.html">Homepage</a>
-            <a href="Gallery.html">Gallery</a>
+            <a href="gallery.html">Gallery</a>
             <a href="ContactUs.html">Contact Us</a>
             <a href="spotlight.html">Customer Spotlight</a>
         </nav>
@@ -25,24 +25,59 @@
         <h1>Gallery</h1>
         <section class="gallery">
             <div class="gallery-container">
-                <img src="https://templates.mediamodifier.com/5db698f47c3dc9731647a4e9/fiction-novel-book-cover-template.jpg" alt="Book Image 1">
-                <img src="https://miblart.com/wp-content/uploads/2021/01/fantasy-sept-768x1152.jpg" alt="Book Image 2">
-                <img src="https://i.pinimg.com/736x/c0/05/8c/c0058c24c296bbae7ff81bb99900eac9.jpg" alt="Book Image 3">
-                <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book Image 4">
-                <img src="https://rocketexpansion.com/wp-content/uploads/2021/05/All-This-Time-1.webp" alt="Book Image 5">
-                <img src="https://marketplace.canva.com/EAFf0E5urqk/1/0/1003w/canva-blue-and-green-surreal-fiction-book-cover-53S3IzrNxvY.jpg" alt="Book Image 6">
-                <img src="https://s26162.pcdn.co/wp-content/uploads/2020/01/Sin-Eater-by-Megan-Campisi.jpg" alt="Book Image 7">
-                <img src="https://i.redd.it/dw5082b4555a1.jpg" alt="Book Image 8">
-                <img src="https://miblart.com/wp-content/uploads/2022/06/D5CCC905-997C-4961-838E-2BBE58157198-scaled-1.jpeg" alt="Book Image 9">
+                <div class="book">
+                    <img src="https://templates.mediamodifier.com/5db698f47c3dc9731647a4e9/fiction-novel-book-cover-template.jpg" alt="Never Ending Sky">
+                    <button class="add-to-cart" data-title="Never Ending Sky">Add to Cart</button>
+                </div>
+                <div class="book">
+                    <img src="https://miblart.com/wp-content/uploads/2021/01/fantasy-sept-768x1152.jpg" alt="A Bitter Thaw">
+                    <button class="add-to-cart" data-title="A Bitter Thaw">Add to Cart</button>
+                </div>
+                <div class="book">
+                    <img src="https://i.pinimg.com/736x/c0/05/8c/c0058c24c296bbae7ff81bb99900eac9.jpg" alt="The Winter Duke">
+                    <button class="add-to-cart" data-title="The Winter Duke">Add to Cart</button>
+                </div>
+                <div class="book">
+                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="The Past Is Rising">
+                    <button class="add-to-cart" data-title="The Past Is Rising">Add to Cart</button>
+                </div>
+                <div class="book">
+                    <img src="https://rocketexpansion.com/wp-content/uploads/2021/05/All-This-Time-1.webp" alt="All This Time">
+                    <button class="add-to-cart" data-title="All This time">Add to Cart</button>
+                </div>
+                <div class="book">
+                    <img src="https://marketplace.canva.com/EAFf0E5urqk/1/0/1003w/canva-blue-and-green-surreal-fiction-book-cover-53S3IzrNxvY.jpg" alt="Hide And Seek">
+                    <button class="add-to-cart" data-title="Hide And Seek">Add to Cart</button>
+                </div>
+                <div class="book">
+                    <img src="https://s26162.pcdn.co/wp-content/uploads/2020/01/Sin-Eater-by-Megan-Campisi.jpg" alt="Sin Eater">
+                    <button class="add-to-cart" data-title="Sin Eater">Add to Cart</button>
+                </div>
+                <div class="book">
+                    <img src="https://i.redd.it/dw5082b4555a1.jpg" alt="Thr Ugly Stepsister">
+                    <button class="add-to-cart" data-title="The Ugly Stepsister">Add to Cart</button>
+                </div>
+                <div class="book">
+                    <img src="https://miblart.com/wp-content/uploads/2022/06/D5CCC905-997C-4961-838E-2BBE58157198-scaled-1.jpeg" alt="A Story of Magic Woods">
+                    <button class="add-to-cart" data-title="A Story of Magic Woods">Add to Cart</button>
+                </div>
             </div>
         </section>
     </main>
 
+    <!-- Shopping Cart Section -->
+    <section class="shopping-cart">
+        <h2>Your Cart</h2>
+        <ul id="cart-items"></ul>
+        <button id="clear-cart">Clear Cart</button>
+        <button id="process-order">Process Order</button>
+    </section>
+
     <!-- Newsletter Section -->
     <section class="newsletter">
         <h2>Sign up for our Newsletter</h2>
-        <input type="email" placeholder="Enter your email">
-        <button>Subscribe</button>
+        <input type="email" id="email-input" placeholder="Enter your email">
+        <button id="subscribe-button">Subscribe</button>
     </section>
 
     <!-- Footer -->
@@ -61,5 +96,50 @@
         <p>&copy; 2025 Book Haven. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+
+        function updateCart() {
+            const cartList = document.getElementById('cart-items');
+            cartList.innerHTML = '';
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                cartList.appendChild(li);
+            });
+            sessionStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                const bookTitle = button.getAttribute('data-title');
+                cart.push(bookTitle);
+                updateCart();
+            });
+        });
+
+        document.getElementById('clear-cart').addEventListener('click', () => {
+            cart = [];
+            updateCart();
+            alert('Your cart has been cleared!');
+        });
+
+        document.getElementById('process-order').addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Your cart is empty. Add books before processing your order!');
+            } else {
+                alert('Your order has been processed!');
+                cart = [];
+                updateCart();
+            }
+        });
+
+        document.getElementById('subscribe-button').addEventListener('click', () => {
+            alert('Thank you for your subscription!');
+        });
+
+        updateCart();
+    </script>
 </body>
 </html>
+
